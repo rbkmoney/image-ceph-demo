@@ -2,7 +2,7 @@
 #+AUTHOR: Grigory Antsiferov
 #+EMAIL: azr@bakka.su
 #+STARTUP: content
-[[http://ci.rbkmoney.com/job/rbkmoney_private/job/image-build/job/master][http://ci.rbkmoney.com/buildStatus/icon?job=rbkmoney_private/image-ceph-demo/master&test.svg]]
+[[http://ci.rbkmoney.com/job/rbkmoney_private/job/image-ceph-demo/job/master][http://ci.rbkmoney.com/buildStatus/icon?job=rbkmoney_private/image-ceph-demo/master&test.svg]]
 
 В этом репозитории находятся исходные коды для создания docker образа ceph для использования в wetkitty =rbkmoney/ceph-demo=.
 
