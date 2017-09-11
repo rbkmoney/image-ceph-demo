@@ -1,4 +1,4 @@
-#!/bin/bash
+#! /bin/bash
 
 # TODO: use functions from build-utils
 function ebegin() {
@@ -47,7 +47,7 @@ ebegin "Installing files"
 (
     set -ue
     cp /tmp/data/ceph-set-env.sh /usr/local/bin/ceph-set-env.sh
-    chmod +x /bin/ceph-set-env.sh
+    chmod +x /usr/local/bin/ceph-set-env.sh
 )
 eend $? "Failed" || exit $?
 
