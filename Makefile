@@ -41,6 +41,7 @@ submodules: $(SUBTARGETS)
 	com.rbkmoney.$(SERVICE_NAME).commit_id=$(COMMIT) \
 	com.rbkmoney.$(SERVICE_NAME).commit_number=`git rev-list --count HEAD`\n \
 	ENTRYPOINT /usr/local/bin/set-ceph-env.sh /entrypoint.sh\n \
+	EXPOSE 8080 \
 	ENV SERVICE_NAME=ceph-rgw" \
 	| docker build -t "$(SERVICE_IMAGE_NAME):$(TAG)" -
 	echo $(TAG) > $@
