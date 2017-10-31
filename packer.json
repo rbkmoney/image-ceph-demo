@@ -3,18 +3,19 @@
 	"docker-registry": "dr.rbkmoney.com",
 	"base-tag": null,
 	"base-dir": "{{env `PWD`}}",
-	"files-dir": "{{env `PWD`}}/files/",
-	"shared-dir": "{{env `HOME`}}/.cache/rbkmoney/images/shared/",
+	"files-dir": "{{env `PWD`}}/files",
+	"shared-dir": "{{env `HOME`}}/.cache/rbkmoney/images/shared",
 	"image-tag": null
     },
     "builders": [
 	{
 	    "type": "docker",
 	    "image": "ceph/demo:{{user `base-tag`}}",
+	    "run_command": ["-d", "-t", "-i", "--entrypoint", "/bin/bash", "{{.Image}}"],
+	    "commit": "true",
 	    "volumes": {
 		"{{user `files-dir`}}": "/tmp/data:ro"
-	    },
-	    "commit": "true"
+	    }
 	}
     ],
     "provisioners": [
@@ -26,7 +27,7 @@
     "post-processors": [
 	{
 	    "type": "docker-tag",
-	    "repository": "{{user `docker-registry`}}/rbkmoney/ceph",
+	    "repository": "{{user `docker-registry`}}/rbkmoney/ceph-demo",
 	    "tag": "{{user `image-tag`}}"
 	}
     ]
